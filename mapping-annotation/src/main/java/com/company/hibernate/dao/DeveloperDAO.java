@@ -1,6 +1,6 @@
-package net.proselyte.hibernate.dao;
+package com.company.hibernate.dao;
 
-import net.proselyte.hibernate.model.Developer;
+import com.company.hibernate.model.Developer;
 
 import java.math.BigDecimal;
 import java.util.List;

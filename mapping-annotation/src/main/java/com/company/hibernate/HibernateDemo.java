@@ -1,7 +1,7 @@
-package net.proselyte.hibernate;
+package com.company.hibernate;
 
-import net.proselyte.hibernate.dao.DeveloperDAO;
-import net.proselyte.hibernate.dao.hibernate.HibernateDeveloperDAOImpl;
+import com.company.hibernate.dao.DeveloperDAO;
+import com.company.hibernate.dao.hibernate.HibernateDeveloperDAOImpl;
 
 public class HibernateDemo {
     public static void main(String[] args) {

@@ -1,8 +1,7 @@
-package net.proselyte.hibernate.model;
+package com.company.hibernate.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
 @Table(name = "developers")

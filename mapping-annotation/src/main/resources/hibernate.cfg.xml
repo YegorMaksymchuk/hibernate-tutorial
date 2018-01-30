@@ -9,9 +9,9 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernate_tutorial?serverTimezone=UTC
         </property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">pass</property>
+        <property name="hibernate.connection.password">root</property>
 
         <!--<mapping resource="Developer.hbm.xml"/>-->
-        <mapping class="net.proselyte.hibernate.model.Developer"/>
+        <!--<mapping class="net.proselyte.hibernate.model.Developer"/>-->
     </session-factory>
 </hibernate-configuration>

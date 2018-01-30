@@ -1,4 +1,4 @@
-package net.proselyte.hibernate.model;
+package com.company.hibernate.model;
 
 public class Project {
     private Long id;

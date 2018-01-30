@@ -1,7 +1,7 @@
-package net.proselyte.hibernate.dao.hibernate;
+package com.company.hibernate.dao.hibernate;
 
-import net.proselyte.hibernate.dao.DeveloperDAO;
-import net.proselyte.hibernate.model.Developer;
+import com.company.hibernate.dao.DeveloperDAO;
+import com.company.hibernate.model.Developer;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;

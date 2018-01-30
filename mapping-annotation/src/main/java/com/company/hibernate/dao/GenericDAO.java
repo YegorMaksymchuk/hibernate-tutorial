@@ -1,4 +1,4 @@
-package net.proselyte.hibernate.dao;
+package com.company.hibernate.dao;
 
 import java.util.List;
 
