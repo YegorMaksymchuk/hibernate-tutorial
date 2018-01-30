@@ -11,7 +11,7 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
 
-        <!--<mapping resource="Developer.hbm.xml"/>-->
-        <!--<mapping class="net.proselyte.hibernate.model.Developer"/>-->
+        <mapping resource="Developer.hbm.xml"/>
+
     </session-factory>
 </hibernate-configuration>
