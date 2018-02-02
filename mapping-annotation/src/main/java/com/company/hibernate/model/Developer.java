@@ -23,6 +23,8 @@ public class Developer {
     @Column(name = "salary")
     private BigDecimal salary;
 
+//    private List<Project> projects;
+
     public Developer() {
     }
 
@@ -65,6 +67,14 @@ public class Developer {
     public void setSalary(BigDecimal salary) {
         this.salary = salary;
     }
+
+//    public List<Project> getProjects() {
+//        return projects;
+//    }
+//
+//    public void setProjects(List<Project> projects) {
+//        this.projects = projects;
+//    }
 
     @Override
     public String toString() {
