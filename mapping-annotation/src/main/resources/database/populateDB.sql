@@ -6,3 +6,8 @@ INSERT INTO hibernate.developers VALUES (2, 'Kolya', 'Nikolaev', 'C++ Developer'
 INSERT INTO hibernate.skills VALUES (1, 'Java');
 INSERT INTO hibernate.skills VALUES (2, 'SQL');
 INSERT INTO hibernate.skills VALUES (3, 'JDBC');
+
+--projects
+INSERT INTO hibernate.projects (name) VALUES ( 'Openshift');
+INSERT INTO hibernate.projects (name, developer_id) VALUES ( 'Eclipse',2);
+INSERT INTO hibernate.projects (name, developer_id) VALUES ( 'Hibernate',1);

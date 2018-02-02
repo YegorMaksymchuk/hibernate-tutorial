@@ -8,10 +8,16 @@ CREATE TABLE IF NOT EXISTS hibernate.developers (
   salary     DECIMAL      NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS hibernate.skills (
+  id           BIGINT PRIMARY KEY AUTO_INCREMENT,
+  skill        VARCHAR(100) NOT NULL,
+  developer_id BIGINT ,
+  FOREIGN KEY (developer_id) REFERENCES developers (id)
+);
+
 CREATE TABLE IF NOT EXISTS hibernate.projects (
   id           BIGINT PRIMARY KEY AUTO_INCREMENT,
   name         VARCHAR(100) NOT NULL,
-  idx          INT                DEFAULT NULL,
-  developer_id BIGINT             DEFAULT NULL,
+  developer_id BIGINT ,
   FOREIGN KEY (developer_id) REFERENCES developers (id)
 );
