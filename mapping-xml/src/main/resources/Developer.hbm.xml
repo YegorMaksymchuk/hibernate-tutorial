@@ -8,6 +8,10 @@
             <generator class="native"/>
         </id>
 
+        <property name="firstName" column="first_name" type="java.lang.String"/>
+        <property name="lastName" column="last_name" type="java.lang.String"/>
+        <property name="specialty" column="specialty" type="java.lang.String"/>
+        <property name="salary" column="salary" type="java.math.BigDecimal"/>
     </class>
 
 </hibernate-mapping>

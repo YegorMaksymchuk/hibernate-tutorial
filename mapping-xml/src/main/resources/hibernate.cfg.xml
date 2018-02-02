@@ -11,9 +11,9 @@
         <property name="hibernate.connection.password">root</property>
         <property name="show_sql">true</property>
 
-        <mapping resource="Developer.hbm.xml"/>
-        <mapping resource="Skills.hbm.xml"/>
-        <mapping resource="Project.hbm.xml"/>
+        <mapping resource="Developer.hbm.xml"></mapping>
+        <mapping resource="Skills.hbm.xml"></mapping>
+        <mapping resource="Project.hbm.xml"></mapping>
 
     </session-factory>
 </hibernate-configuration>
