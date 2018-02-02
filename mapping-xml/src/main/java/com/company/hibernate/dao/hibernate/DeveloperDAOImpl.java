@@ -10,7 +10,7 @@ import org.hibernate.query.Query;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class HibernateDeveloperDAOImpl implements DeveloperDAO {
+public class DeveloperDAOImpl implements DeveloperDAO {
 
     SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 

@@ -1,11 +1,11 @@
 package com.company.hibernate;
 
 import com.company.hibernate.dao.DeveloperDAO;
-import com.company.hibernate.dao.hibernate.HibernateDeveloperDAOImpl;
+import com.company.hibernate.dao.hibernate.DeveloperDAOImpl;
 
 public class HibernateDemo {
     public static void main(String[] args) {
-        DeveloperDAO developerDAO = new HibernateDeveloperDAOImpl();
+        DeveloperDAO developerDAO = new DeveloperDAOImpl();
 
         System.out.println(developerDAO.getAllDeveloperSQL());
     }
