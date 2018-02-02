@@ -2,15 +2,12 @@ package com.company.hibernate.dao.hibernate;
 
 import com.company.hibernate.dao.DeveloperDAO;
 import com.company.hibernate.model.Developer;
-import com.company.hibernate.model.Skills;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 public class DeveloperDAOImpl implements DeveloperDAO {
@@ -76,7 +73,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     public List<Developer> getAllDeveloperSQL() {
         Session session = this.sessionFactory.openSession();
 
-        SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM developers, projects, skills");
+        SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM developers, projects");
         sqlQuery.addEntity(Developer.class);
         List<Developer> result = sqlQuery.list();
 

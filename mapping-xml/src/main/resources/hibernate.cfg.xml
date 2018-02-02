@@ -12,7 +12,6 @@
         <property name="show_sql">true</property>
 
         <mapping resource="Developer.hbm.xml"></mapping>
-        <mapping resource="Skills.hbm.xml"></mapping>
         <mapping resource="Project.hbm.xml"></mapping>
 
     </session-factory>

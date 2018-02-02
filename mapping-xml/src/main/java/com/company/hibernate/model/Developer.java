@@ -13,8 +13,6 @@ public class Developer {
     private String specialty;
     private BigDecimal salary;
     private Set<Project> projects = new HashSet<Project>(0);
-    private Set<Skills> skills = new HashSet<Skills>(0);
-
 
     public Developer() {
     }
@@ -67,14 +65,6 @@ public class Developer {
         this.projects = projects;
     }
 
-    public Set<Skills> getSkills() {
-        return skills;
-    }
-
-    public void setSkills(Set<Skills> skills) {
-        this.skills = skills;
-    }
-
     @Override
     public String toString() {
         return "Developer{" +
@@ -84,7 +74,6 @@ public class Developer {
                 ", specialty='" + specialty + '\'' +
                 ", salary=" + salary +
                 ", projects=" + projects +
-                ", skills=" + skills +
                 '}';
     }
 }
