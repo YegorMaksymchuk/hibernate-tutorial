@@ -2,29 +2,19 @@ package com.company.hibernate.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-@Entity
-@Table(name = "developers")
 public class Developer {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "first_name")
     private String firstName;
-
-    @Column(name = "last_name")
     private String lastName;
-
-    @Column(name = "specialty")
     private String specialty;
-
-    @Column(name = "salary")
     private BigDecimal salary;
+    private Set<Project> projects = new HashSet<Project>(0);
+    private Set<Skills> skills = new HashSet<Skills>(0);
 
-    private List<Project> projects;
 
     public Developer() {
     }
@@ -69,12 +59,20 @@ public class Developer {
         this.salary = salary;
     }
 
-    public List<Project> getProjects() {
+    public Set<Project> getProjects() {
         return projects;
     }
 
-    public void setProjects(List<Project> projects) {
+    public void setProjects(Set<Project> projects) {
         this.projects = projects;
+    }
+
+    public Set<Skills> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Set<Skills> skills) {
+        this.skills = skills;
     }
 
     @Override
@@ -86,6 +84,7 @@ public class Developer {
                 ", specialty='" + specialty + '\'' +
                 ", salary=" + salary +
                 ", projects=" + projects +
+                ", skills=" + skills +
                 '}';
     }
 }
