@@ -73,7 +73,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     public List<Developer> getAllDeveloperSQL() {
         Session session = this.sessionFactory.openSession();
 
-        SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM developers, projects");
+        SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM developers");
         sqlQuery.addEntity(Developer.class);
         List<Developer> result = sqlQuery.list();
 
