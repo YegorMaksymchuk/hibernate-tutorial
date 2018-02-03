@@ -1,8 +1,12 @@
-package com.company.hibernate.dao.hibernate;
+package com.company.hibernate.dao.impl;
 
 import com.company.hibernate.dao.DeveloperDAO;
 import com.company.hibernate.model.Developer;
-import org.hibernate.*;
+import com.company.hibernate.utils.HibernateUtil;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.NativeQuery;
@@ -16,7 +20,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
     public void save(Developer developer) {
-        Session session = this.sessionFactory.openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession(); //this.sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
         session.save(developer);
@@ -73,7 +77,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     }
 
     public List<Developer> getAllDeveloperSQL() {
-        Session session = this.sessionFactory.openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();//this.sessionFactory.openSession();
 
         NativeQuery sqlQuery = session.createNativeQuery("SELECT * FROM developers");
         sqlQuery.addEntity(Developer.class);

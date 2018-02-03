@@ -1,7 +1,7 @@
 package com.company.hibernate;
 
 import com.company.hibernate.dao.DeveloperDAO;
-import com.company.hibernate.dao.hibernate.DeveloperDAOImpl;
+import com.company.hibernate.dao.impl.DeveloperDAOImpl;
 import com.company.hibernate.model.Developer;
 
 import java.util.List;
