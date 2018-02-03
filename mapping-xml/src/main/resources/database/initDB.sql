@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS hibernate.developers (
   specialty  VARCHAR(100) NOT NULL,
   salary     DECIMAL      NOT NULL
 );
+
 CREATE TABLE IF NOT EXISTS hibernate.projects (
   id           BIGINT PRIMARY KEY AUTO_INCREMENT,
   name         VARCHAR(100) NOT NULL,
@@ -14,7 +15,7 @@ CREATE TABLE IF NOT EXISTS hibernate.projects (
   FOREIGN KEY (developer_id) REFERENCES developers (id)
 );
 
---DROP TABLE hibernate.skills 
+--DROP TABLE hibernate.skills
 
 /*
 CREATE TABLE IF NOT EXISTS hibernate.skills (

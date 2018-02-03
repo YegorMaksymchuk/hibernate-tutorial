@@ -5,6 +5,7 @@ import com.company.hibernate.model.Developer;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
 import java.math.BigDecimal;
@@ -24,6 +25,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
         session.close();
     }
 
+    @Override
     public Developer getById(Long id) {
         Session session = this.sessionFactory.openSession();
         Developer developer = session.get(Developer.class, id);
@@ -73,7 +75,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     public List<Developer> getAllDeveloperSQL() {
         Session session = this.sessionFactory.openSession();
 
-        SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM developers");
+        NativeQuery sqlQuery = session.createNativeQuery("SELECT * FROM developers");
         sqlQuery.addEntity(Developer.class);
         List<Developer> result = sqlQuery.list();
 
