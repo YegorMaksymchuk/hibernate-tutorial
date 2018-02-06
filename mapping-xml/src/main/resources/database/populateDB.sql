@@ -11,11 +11,24 @@ INSERT INTO hibernate.developers (first_name, last_name , specialty, salary, pro
 INSERT INTO hibernate.developers (first_name, last_name , specialty, salary, project_id) VALUES ( 'Tatjana', 'Maksimova', 'Java Script Developer', 2000.00, 3);
 INSERT INTO hibernate.developers (first_name, last_name , specialty, salary, project_id) VALUES ( 'Evgenija', 'Galevich', 'Java Script Developer', 2000.00, 3);
 
+--skills
+INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('SQL', 1);
+INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('UNIX', 2);
+INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('MacOS', 3);
+INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('Networks', 4);
+INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('Cloud', 5);
+INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('AWS', 6);
+
+
+--developer_skills
+INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (1,1);
+INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (1,1);
+INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (1,2);
+INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (2,2);
+INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (2,4);
+INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (2,6);
+--INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES ();
+
 SELECT * FROM hibernate.developers;
 SELECT * FROM hibernate.projects;
-
-SELECT hibernate.projects.name ,count(hibernate.developers.id)
-FROM hibernate.developers
-INNER JOIN hibernate.projects
-ON developers.id=projects.developer_id
-GROUP BY projects.name;
+SELECT * FROM hibernate.developer_skills;
