@@ -79,7 +79,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
 
     @Override
     public List<Developer> getAllDeveloperSQL() {
-        Session session = HibernateUtil.getSessionFactory().openSession(); //this.sessionFactory.openSession();
+        Session session = HibernateUtil.getSessionFactory().openSession();
 
         NativeQuery sqlQuery = session.createNativeQuery("SELECT * FROM developers");
         sqlQuery.addEntity(Developer.class);

@@ -1,8 +1,12 @@
 package com.company.hibernate.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Project {
     private Long id;
     private String name;
+    private Set<Developer> developers = new HashSet<>();
 
     public Project() {
     }
@@ -23,11 +27,12 @@ public class Project {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "Project{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+    public Set<Developer> getDevelopers() {
+        return developers;
     }
+
+    public void setDevelopers(Set<Developer> developers) {
+        this.developers = developers;
+    }
+
 }

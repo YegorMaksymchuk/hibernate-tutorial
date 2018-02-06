@@ -1,9 +1,6 @@
 package com.company.hibernate.model;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Developer {
 
@@ -12,7 +9,6 @@ public class Developer {
     private String lastName;
     private String specialty;
     private BigDecimal salary;
-    private Set<Project> projects = new HashSet<Project>(0);
 
     public Developer() {
     }
@@ -57,23 +53,5 @@ public class Developer {
         this.salary = salary;
     }
 
-    public Set<Project> getProjects() {
-        return projects;
-    }
 
-    public void setProjects(Set<Project> projects) {
-        this.projects = projects;
-    }
-
-    @Override
-    public String toString() {
-        return "Developer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", specialty='" + specialty + '\'' +
-                ", salary=" + salary +
-                ", projects=" + projects +
-                '}';
-    }
 }
