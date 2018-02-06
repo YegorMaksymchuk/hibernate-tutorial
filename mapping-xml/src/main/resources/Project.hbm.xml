@@ -11,7 +11,7 @@
 
         <property name="name" type="java.lang.String" column="name"/>
 
-        <set name="developers" table="developers" inverse="true" lazy="false" fetch="select">
+        <set name="developers" table="developers" inverse="true" lazy="false" fetch="select" cascade="all">
             <key>
                 <column name="project_id" not-null="true"/>
             </key>

@@ -13,7 +13,8 @@
         <property name="specialty" column="specialty" type="java.lang.String"/>
         <property name="salary" column="salary" type="java.math.BigDecimal"/>
 
-
+        <many-to-one name="project" class="com.company.hibernate.model.Project" column="project_id" not-null="true"
+                     cascade="all"/>
     </class>
 
 </hibernate-mapping>

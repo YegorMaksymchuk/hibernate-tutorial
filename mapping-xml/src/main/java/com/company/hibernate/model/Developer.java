@@ -10,6 +10,8 @@ public class Developer {
     private String specialty;
     private BigDecimal salary;
 
+    private Project project;
+
     public Developer() {
     }
 
@@ -53,5 +55,12 @@ public class Developer {
         this.salary = salary;
     }
 
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 
 }
