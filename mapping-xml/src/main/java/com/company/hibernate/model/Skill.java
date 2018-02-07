@@ -5,8 +5,7 @@ import java.util.Set;
 
 public class Skill {
     private Long id;
-    private String name;
-    private Integer idx;
+    private String skill;
     private Set<Developer> developers = new HashSet<>(0);
 
     public Long getId() {
@@ -17,20 +16,12 @@ public class Skill {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getSkill() {
+        return skill;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getIdx() {
-        return idx;
-    }
-
-    public void setIdx(Integer idx) {
-        this.idx = idx;
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 
     public Set<Developer> getDevelopers() {
@@ -45,8 +36,7 @@ public class Skill {
     public String toString() {
         return "Skill{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                ", idx=" + idx +
+                ", skill='" + skill + '\'' +
                 ", developers=" + developers +
                 '}';
     }

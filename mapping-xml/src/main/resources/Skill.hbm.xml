@@ -9,13 +9,15 @@
             <generator class="native"/>
         </id>
 
-        <property name="name" type="java.lang.String" column="name"/>
+        <property name="skill" type="java.lang.String" column="skill"/>
 
-        <set name="developers" table="developers" inverse="true" lazy="false" fetch="select" cascade="all">
+        <set name="developers" table="developer_skills" inverse="true" lazy="false" fetch="select" cascade="all">
             <key>
                 <column name="skill_id" not-null="true"/>
             </key>
-            <many-to-many class="com.company.hibernate.model.Developer"/>
+            <many-to-many class="com.company.hibernate.model.Developer">
+                <column name="developer_id"/>
+            </many-to-many>
         </set>
     </class>
 

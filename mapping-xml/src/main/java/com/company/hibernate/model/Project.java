@@ -6,7 +6,7 @@ import java.util.Set;
 public class Project {
     private Long id;
     private String name;
-    private Set<Developer> developers = new HashSet<>();
+    private Set<Developer> developers = new HashSet<>(0);
 
     @Override
     public String toString() {

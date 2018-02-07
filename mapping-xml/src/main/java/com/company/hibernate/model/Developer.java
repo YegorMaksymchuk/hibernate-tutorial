@@ -1,8 +1,8 @@
 package com.company.hibernate.model;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Developer {
 
@@ -12,13 +12,13 @@ public class Developer {
     private String specialty;
     private BigDecimal salary;
     private Project project;
-    private List<Skill> skills = new ArrayList<>(0);
+    private Set<Skill> skills = new HashSet<>(0);
 
-    public List<Skill> getSkills() {
+    public Set<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(List<Skill> skills) {
+    public void setSkills(Set<Skill> skills) {
         this.skills = skills;
     }
 

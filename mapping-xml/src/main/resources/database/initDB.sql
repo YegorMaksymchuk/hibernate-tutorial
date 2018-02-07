@@ -3,7 +3,6 @@ CREATE SCHEMA hibernate DEFAULT CHARACTER SET utf8mb4;
 CREATE TABLE IF NOT EXISTS hibernate.projects (
   id           BIGINT PRIMARY KEY AUTO_INCREMENT,
   name         VARCHAR(100) NOT NULL
-
 );
 
 CREATE TABLE IF NOT EXISTS hibernate.developers (
@@ -18,8 +17,7 @@ CREATE TABLE IF NOT EXISTS hibernate.developers (
 
 CREATE TABLE IF NOT EXISTS hibernate.skills (
   id           BIGINT PRIMARY KEY AUTO_INCREMENT,
-  skill        VARCHAR(100) NOT NULL,
-  skill_idx    INT(50) NOT NULL
+  skill        VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS hibernate.developer_skills(
