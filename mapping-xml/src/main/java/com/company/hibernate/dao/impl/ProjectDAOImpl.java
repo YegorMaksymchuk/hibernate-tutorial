@@ -16,9 +16,7 @@ public class ProjectDAOImpl implements ProjectDAO {
     public void save(Project project) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-
         session.save(project);
-
         transaction.commit();
         session.close();
     }
