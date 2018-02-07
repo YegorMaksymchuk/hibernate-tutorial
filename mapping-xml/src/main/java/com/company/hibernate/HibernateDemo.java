@@ -15,13 +15,15 @@ public class HibernateDemo {
         ProjectDAO projectDAOImpl = new ProjectDAOImpl();
         DeveloperDAO developerDAO = new DeveloperDAOImpl();
         Project hibernate = projectDAOImpl.getById(1L);
+        System.out.println(hibernate);
         Developer newcomer = new Developer();
         newcomer.setFirstName("Illia");
         newcomer.setLastName("Aphonasyev");
         newcomer.setSalary(BigDecimal.valueOf(8000.00));
         newcomer.setSpecialty("Assembler");
         newcomer.setProject(hibernate);
-        printer(developerDAO.getAllDeveloperSQL());
+
+//        printer(developerDAO.getAllDeveloperSQL());
 
         System.exit(0);
     }

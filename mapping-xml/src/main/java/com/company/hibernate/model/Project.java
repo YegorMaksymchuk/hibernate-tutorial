@@ -8,6 +8,15 @@ public class Project {
     private String name;
     private Set<Developer> developers = new HashSet<>();
 
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", developers=" + developers +
+                '}';
+    }
+
     public Project() {
     }
 
