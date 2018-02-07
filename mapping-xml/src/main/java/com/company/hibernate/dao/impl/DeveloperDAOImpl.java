@@ -5,7 +5,9 @@ import com.company.hibernate.model.Developer;
 import com.company.hibernate.utils.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
@@ -19,9 +21,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     public void save(Developer developer) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-
         session.save(developer);
-
         transaction.commit();
         session.close();
     }

@@ -9,29 +9,20 @@ import com.company.hibernate.dao.impl.SkillDAOImpl;
 import com.company.hibernate.model.Developer;
 import com.company.hibernate.model.Project;
 import com.company.hibernate.model.Skill;
+import com.company.hibernate.services.DeveloperService;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class HibernateDemo {
     public static void main(String[] args) {
-        ProjectDAO projectDAO = new ProjectDAOImpl();
+
+
         DeveloperDAO developerDAO = new DeveloperDAOImpl();
-        Project cloudPlatform = new Project();
-        Developer newcomer = new Developer();
 
-        cloudPlatform.setName("GCP");
-
-        newcomer.setFirstName("Illiia");
-        newcomer.setLastName("Illiin");
-        newcomer.setSalary(BigDecimal.valueOf(2800.00));
-        newcomer.setSpecialty("Java Developer");
-
-
-        projectDAO.save(cloudPlatform);
-        newcomer.setProject(cloudPlatform);
-        developerDAO.save(newcomer);
-
+        DeveloperService developerService = new DeveloperService();
+        developerService.addJavaDev("Alex", "Nazarchuk", BigDecimal.valueOf(1000.00));
         printer(developerDAO.getAllDeveloperSQL());
         System.exit(0);
     }

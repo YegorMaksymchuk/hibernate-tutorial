@@ -6,14 +6,12 @@ import java.util.Set;
 public class Project {
     private Long id;
     private String name;
-    private Set<Developer> developers = new HashSet<>(0);
 
     @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", developers=" + developers +
                 '}';
     }
 
@@ -35,13 +33,4 @@ public class Project {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Set<Developer> getDevelopers() {
-        return developers;
-    }
-
-    public void setDevelopers(Set<Developer> developers) {
-        this.developers = developers;
-    }
-
 }

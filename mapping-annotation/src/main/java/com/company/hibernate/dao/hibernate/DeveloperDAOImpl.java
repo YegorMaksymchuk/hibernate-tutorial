@@ -17,9 +17,7 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     public void save(Developer developer) {
         Session session = this.sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-
         session.save(developer);
-
         transaction.commit();
         session.close();
     }
