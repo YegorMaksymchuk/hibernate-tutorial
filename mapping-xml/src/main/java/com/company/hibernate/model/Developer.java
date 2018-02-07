@@ -1,6 +1,8 @@
 package com.company.hibernate.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Developer {
 
@@ -9,8 +11,16 @@ public class Developer {
     private String lastName;
     private String specialty;
     private BigDecimal salary;
-
     private Project project;
+    private List<Skill> skills = new ArrayList<>(0);
+
+    public List<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(List<Skill> skills) {
+        this.skills = skills;
+    }
 
     public Developer() {
     }
@@ -63,4 +73,16 @@ public class Developer {
         this.project = project;
     }
 
+    @Override
+    public String toString() {
+        return "Developer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", specialty='" + specialty + '\'' +
+                ", salary=" + salary +
+                ", project=" + project +
+                ", skills=" + skills +
+                '}';
+    }
 }
