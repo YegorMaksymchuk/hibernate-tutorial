@@ -12,15 +12,15 @@ public class Developer {
     private String specialty;
     private BigDecimal salary;
     private Project project;
-    private Set<Skill> skills = new HashSet<>(0);
+//    private Set<Skill> skills = new HashSet<>(0);
 
-    public Set<Skill> getSkills() {
-        return skills;
-    }
+//    public Set<Skill> getSkills() {
+//        return skills;
+//    }
 
-    public void setSkills(Set<Skill> skills) {
-        this.skills = skills;
-    }
+//    public void setSkills(Set<Skill> skills) {
+//        this.skills = skills;
+//    }
 
     public Developer() {
     }
@@ -82,7 +82,6 @@ public class Developer {
                 ", specialty='" + specialty + '\'' +
                 ", salary=" + salary +
                 ", project=" + project +
-                ", skills=" + skills +
                 '}';
     }
 }

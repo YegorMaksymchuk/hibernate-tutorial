@@ -14,9 +14,7 @@ public class SkillDAOImpl implements SkillDAO {
     public void save(Skill skill) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
-
         session.save(skill);
-
         transaction.commit();
         session.close();
     }

@@ -12,12 +12,12 @@ INSERT INTO hibernate.developers (first_name, last_name , specialty, salary, pro
 INSERT INTO hibernate.developers (first_name, last_name , specialty, salary, project_id) VALUES ( 'Evgenija', 'Galevich', 'Java Script Developer', 2000.00, 3);
 
 --skills
-INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('SQL', 1);
-INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('UNIX', 2);
-INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('MacOS', 3);
-INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('Networks', 4);
-INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('Cloud', 5);
-INSERT INTO hibernate.skills (skill, skill_idx) VALUES ('AWS', 6);
+INSERT INTO hibernate.skills (skill) VALUES ('SQL');
+INSERT INTO hibernate.skills (skill) VALUES ('UNIX');
+INSERT INTO hibernate.skills (skill) VALUES ('MacOS');
+INSERT INTO hibernate.skills (skill) VALUES ('Networks');
+INSERT INTO hibernate.skills (skill) VALUES ('Cloud');
+INSERT INTO hibernate.skills (skill) VALUES ('AWS');
 
 
 --developer_skills
