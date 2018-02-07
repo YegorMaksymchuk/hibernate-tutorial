@@ -16,14 +16,14 @@
         <many-to-one name="project" class="com.company.hibernate.model.Project" column="project_id" not-null="true"
                      cascade="all"/>
 
-        <!--<set name="skills" table="developer_skills" lazy="false" cascade="all" inverse="true">-->
-            <!--<key>-->
-                <!--<column name="developer_id"/>-->
-            <!--</key>-->
-            <!--<many-to-many entity-name="com.company.hibernate.model.Skill">-->
-                <!--<column name="skill_id"/>-->
-            <!--</many-to-many>-->
-        <!--</set>-->
+        <set name="skills" table="developer_skills" lazy="false" cascade="all" inverse="true">
+            <key>
+                <column name="developer_id"/>
+            </key>
+            <many-to-many entity-name="com.company.hibernate.model.Skill">
+                <column name="skill_id"/>
+            </many-to-many>
+        </set>
     </class>
 
 </hibernate-mapping>
