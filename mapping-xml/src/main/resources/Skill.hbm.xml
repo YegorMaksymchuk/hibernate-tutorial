@@ -9,5 +9,14 @@
         </id>
 
         <property name="skill" type="java.lang.String" column="skill"/>
+
+        <set name="developers" table="developer_skills" cascade="all" inverse="true" fetch="select" lazy="false">
+            <key>
+                <column name="developer_id"/>
+            </key>
+            <many-to-many entity-name="com.company.hibernate.model.Skill">
+                <column name="skill_id"/>
+            </many-to-many>
+        </set>
     </class>
 </hibernate-mapping>

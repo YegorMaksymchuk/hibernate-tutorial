@@ -13,10 +13,11 @@
         <property name="specialty" column="specialty" type="java.lang.String"/>
         <property name="salary" column="salary" type="java.math.BigDecimal"/>
 
-        <many-to-one name="project" class="com.company.hibernate.model.Project" column="project_id" not-null="true"
+        <many-to-one name="project" class="com.company.hibernate.model.Project" fetch="select" lazy="false"
+                     column="project_id" not-null="true"
                      cascade="all"/>
 
-        <set name="skills" table="developer_skills" cascade="all" inverse="false">
+        <set name="skills" table="developer_skills" cascade="all" inverse="true" fetch="select" lazy="false">
             <key>
                 <column name="developer_id"/>
             </key>

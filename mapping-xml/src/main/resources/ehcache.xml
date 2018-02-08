@@ -10,7 +10,7 @@
     </defaultCache>
 
 
-    <cache name="developerCache"
+    <cache name="com.company.hibernate.model.Developer"
            maxEntriesLocalHeap="10000"
            maxEntriesLocalDisk="1000"
            eternal="false"
@@ -22,7 +22,7 @@
         <persistence strategy="localTempSwap"/>
     </cache>
 
-    <cache name="projectCache"
+    <cache name="com.company.hibernate.model.Project"
            maxEntriesLocalHeap="10000"
            maxEntriesLocalDisk="1000"
            eternal="false"

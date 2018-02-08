@@ -81,8 +81,8 @@ public class Developer {
                 ", lastName='" + lastName + '\'' +
                 ", specialty='" + specialty + '\'' +
                 ", salary=" + salary +
-                ", project=" + project +
-                ", skills=" + skills +
+                ", \nproject=" + project +
+                ", \nskills=" + skills +
                 '}';
     }
 }
