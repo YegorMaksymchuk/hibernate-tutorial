@@ -8,14 +8,13 @@ import java.util.Set;
 @Table(name="projects")
 public class Project {
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "name")
     private String name;
 
-    @Column(name="developer_id")
-    private Long developer_id;
 
     @OneToMany(mappedBy = "project")
     private Set<Developer> developers = new HashSet<>(0);
@@ -26,7 +25,7 @@ public class Project {
     public Project(Long id, String name, Long developer_id) {
         this.id = id;
         this.name = name;
-        this.developer_id = developer_id;
+
     }
 
     public Long getId() {
@@ -45,15 +44,6 @@ public class Project {
         this.name = name;
     }
 
-    public Long getDeveloper_id() {
-        return developer_id;
-    }
-
-    public void setDeveloper_id(Long developer_id) {
-        this.developer_id = developer_id;
-    }
-
-
     public Set<Developer> getDevelopers() {
         return developers;
     }
@@ -67,7 +57,6 @@ public class Project {
         return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", developer_id=" + developer_id +
                 ", developers=" + developers +
                 '}';
     }

@@ -5,19 +5,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "Skills")
+@Table(name = "skills")
 public class Skill {
 
     @Id
+    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "skill")
     private String skill;
 
-    @ManyToMany
-    @JoinTable(name = "developer_skills",
-            joinColumns = @JoinColumn(name = "skill_id"),
-            inverseJoinColumns = @JoinColumn(name = "developer_id"))
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE}, mappedBy = "skills", targetEntity = Developer.class)
     private Set<Developer> developers = new HashSet<>();
 
     public Skill() {

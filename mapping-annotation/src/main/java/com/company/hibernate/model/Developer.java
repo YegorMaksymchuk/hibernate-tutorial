@@ -10,6 +10,7 @@ import java.util.Set;
 public class Developer {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -25,14 +26,12 @@ public class Developer {
     @Column(name = "salary")
     private BigDecimal salary;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", referencedColumnName = "id")
     private Project project;
 
-    @ManyToMany
-    @JoinTable(name = "developer_skills",
-            joinColumns = @JoinColumn(name = "developer_id"),
-            inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Skill.class, cascade = {CascadeType.MERGE})
+    @JoinTable(name = "developer_skills", joinColumns = @JoinColumn(name = "developers_id"), inverseJoinColumns = @JoinColumn(name = "skills_id"))
     private Set<Skill> skills = new HashSet<Skill>(0);
 
     @Override

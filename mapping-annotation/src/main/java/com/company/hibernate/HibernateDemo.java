@@ -7,6 +7,6 @@ public class HibernateDemo {
     public static void main(String[] args) {
         DeveloperDAO developerDAO = new DeveloperDAOImpl();
 
-        System.out.println(developerDAO.getAllDeveloperSQL());
+        System.out.println(developerDAO.getById(1L));
     }
 }
