@@ -26,17 +26,4 @@ INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (1,2);
 INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (2,2);
 INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (2,4);
 INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES (2,6);
---INSERT INTO hibernate.developer_skills (developer_id, skill_id) VALUES ();
 
-SELECT * FROM hibernate.developers;
-
-SELECT * FROM hibernate.projects;
-
-SELECT * FROM hibernate.developer_skills;
-
-SELECT developers.first_name, developers.last_name, skills.skill
-FROM hibernate.developers
-INNER JOIN hibernate.developer_skills
-ON hibernate.developers.id=hibernate.developer_skills.developer_id
-INNER JOIN hibernate.skills
-ON hibernate.skills.id=hibernate.developer_skills.skill_id

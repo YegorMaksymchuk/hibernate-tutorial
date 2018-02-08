@@ -27,6 +27,3 @@ developer_id BIGINT NOT NULL,
   FOREIGN KEY (developer_id) REFERENCES developers (id) ON DELETE cascade ON UPDATE cascade,
   FOREIGN KEY (skill_id) REFERENCES skills (id)
 );
-
-
---DROP SCHEMA hibernate;

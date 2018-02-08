@@ -2,6 +2,7 @@ package com.company.hibernate.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -24,7 +25,36 @@ public class Developer {
     @Column(name = "salary")
     private BigDecimal salary;
 
-    private Set<Project> projects;
+    @ManyToOne
+    @JoinColumn(name = "project_id", referencedColumnName = "id")
+    private Project project;
+
+    @ManyToMany
+    @JoinTable(name = "developer_skills",
+            joinColumns = @JoinColumn(name = "developer_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private Set<Skill> skills = new HashSet<Skill>(0);
+
+    @Override
+    public String toString() {
+        return "Developer{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", specialty='" + specialty + '\'' +
+                ", salary=" + salary +
+                ", project=" + project +
+                ", skills=" + skills +
+                '}';
+    }
+
+    public Set<Skill> getSkills() {
+        return skills;
+    }
+
+    public void setSkills(Set<Skill> skills) {
+        this.skills = skills;
+    }
 
     public Developer() {
     }
@@ -69,23 +99,12 @@ public class Developer {
         this.salary = salary;
     }
 
-    public Set<Project> getProjects() {
-        return projects;
+    public Project getProjects() {
+        return project;
     }
 
-    public void setProjects(Set<Project> projects) {
-        this.projects = projects;
+    public void setProjects(Project project) {
+        this.project = project;
     }
 
-    @Override
-    public String toString() {
-        return "Developer{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", specialty='" + specialty + '\'' +
-                ", salary=" + salary +
-                ", projects=" + projects +
-                '}';
-    }
 }

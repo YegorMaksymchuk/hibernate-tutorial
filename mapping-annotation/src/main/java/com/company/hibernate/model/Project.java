@@ -1,6 +1,8 @@
 package com.company.hibernate.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="projects")
@@ -14,6 +16,9 @@ public class Project {
 
     @Column(name="developer_id")
     private Long developer_id;
+
+    @OneToMany(mappedBy = "project")
+    private Set<Developer> developers = new HashSet<>(0);
 
     public Project() {
     }
@@ -48,12 +53,22 @@ public class Project {
         this.developer_id = developer_id;
     }
 
+
+    public Set<Developer> getDevelopers() {
+        return developers;
+    }
+
+    public void setDevelopers(Set<Developer> developers) {
+        this.developers = developers;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", developer_id=" + developer_id +
+                ", developers=" + developers +
                 '}';
     }
 }
