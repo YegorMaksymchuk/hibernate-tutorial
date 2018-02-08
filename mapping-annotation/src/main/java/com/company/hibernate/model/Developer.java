@@ -26,12 +26,17 @@ public class Developer {
     @Column(name = "salary")
     private BigDecimal salary;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id", referencedColumnName = "id")
     private Project project;
 
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Skill.class, cascade = {CascadeType.MERGE})
-    @JoinTable(name = "developer_skills", joinColumns = @JoinColumn(name = "developers_id"), inverseJoinColumns = @JoinColumn(name = "skills_id"))
+    @ManyToMany(fetch = FetchType.EAGER,
+            targetEntity = Skill.class,
+            cascade = {CascadeType.MERGE})
+    @JoinTable(
+            name = "developer_skills",
+            joinColumns = @JoinColumn(name = "developer_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private Set<Skill> skills = new HashSet<Skill>(0);
 
     @Override
@@ -42,8 +47,8 @@ public class Developer {
                 ", lastName='" + lastName + '\'' +
                 ", specialty='" + specialty + '\'' +
                 ", salary=" + salary +
-                ", project=" + project +
-                ", skills=" + skills +
+                ", \nproject=" + project +
+                ", \nskills=" + skills +
                 '}';
     }
 

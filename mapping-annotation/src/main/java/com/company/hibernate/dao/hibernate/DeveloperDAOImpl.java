@@ -22,9 +22,12 @@ public class DeveloperDAOImpl implements DeveloperDAO {
         session.close();
     }
 
+
     public Developer getById(Long id) {
         Session session = this.sessionFactory.openSession();
+        session.getTransaction().begin();
         Developer developer = session.get(Developer.class, id);
+        session.getTransaction().commit();
         session.close();
         return developer;
     }
@@ -74,7 +77,6 @@ public class DeveloperDAOImpl implements DeveloperDAO {
         SQLQuery sqlQuery = session.createSQLQuery("SELECT * FROM developers");
         sqlQuery.addEntity(Developer.class);
         List<Developer> result = sqlQuery.list();
-        result.forEach(System.out::println);
         session.close();
         return result;
     }
