@@ -16,7 +16,7 @@
         <many-to-one name="project" class="com.company.hibernate.model.Project" column="project_id" not-null="true"
                      cascade="all"/>
 
-        <set name="skills" table="developer_skills" lazy="true" cascade="all">
+        <set name="skills" table="developer_skills" lazy="false" cascade="all" inverse="true">
             <key>
                 <column name="developer_id"/>
             </key>

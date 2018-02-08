@@ -6,7 +6,14 @@ import java.util.Set;
 public class Skill {
     private Long id;
     private String skill;
-//    private Set<Developer> developers = new HashSet<>(0);
+
+    @Override
+    public String toString() {
+        return "Skill{" +
+                "id=" + id +
+                ", skill='" + skill + '\'' +
+                '}';
+    }
 
     public Long getId() {
         return id;
@@ -22,21 +29,5 @@ public class Skill {
 
     public void setSkill(String skill) {
         this.skill = skill;
-    }
-
-//    public Set<Developer> getDevelopers() {
-//        return developers;
-//    }
-//
-//    public void setDevelopers(Set<Developer> developers) {
-//        this.developers = developers;
-//    }
-
-    @Override
-    public String toString() {
-        return "Skill{" +
-                "id=" + id +
-                ", skill='" + skill + '\'' +
-                '}';
     }
 }
