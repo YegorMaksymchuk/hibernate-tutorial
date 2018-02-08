@@ -2,6 +2,7 @@ package com.company.hibernate.model;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.Set;
 
 @Entity
 @Table(name = "developers")
@@ -23,7 +24,7 @@ public class Developer {
     @Column(name = "salary")
     private BigDecimal salary;
 
-//    private List<Project> projects;
+    private Set<Project> projects;
 
     public Developer() {
     }
@@ -68,13 +69,13 @@ public class Developer {
         this.salary = salary;
     }
 
-//    public List<Project> getProjects() {
-//        return projects;
-//    }
-//
-//    public void setProjects(List<Project> projects) {
-//        this.projects = projects;
-//    }
+    public Set<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Set<Project> projects) {
+        this.projects = projects;
+    }
 
     @Override
     public String toString() {
@@ -84,7 +85,7 @@ public class Developer {
                 ", lastName='" + lastName + '\'' +
                 ", specialty='" + specialty + '\'' +
                 ", salary=" + salary +
-//                ", projects=" + projects +
+                ", projects=" + projects +
                 '}';
     }
 }
