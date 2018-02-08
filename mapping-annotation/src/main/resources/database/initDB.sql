@@ -28,9 +28,5 @@ developer_id BIGINT NOT NULL,
   FOREIGN KEY (skill_id) REFERENCES skills (id)
 );
 
-truncate hibernate.projects;
-truncate hibernate.developers;
-truncate hibernate.skills;
-truncate hibernate.developer_skills;
-DROP TABLE hibernate.skills
-DROP SCHEMA hibernate;
+
+--DROP SCHEMA hibernate;

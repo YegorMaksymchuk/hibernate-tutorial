@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.mapping.FetchProfile;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
@@ -79,13 +80,13 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     public List<Developer> getAllDeveloperSQL() {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
-        session.getTransaction().begin();
 
         NativeQuery sqlQuery = session.createNativeQuery("SELECT * FROM developers");
         sqlQuery.addEntity(Developer.class);
         List<Developer> result = sqlQuery.list();
 
-        session.getTransaction().commit();
+        result.forEach(System.out::println);
+
         session.close();
         return result;
     }
