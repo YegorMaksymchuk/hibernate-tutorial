@@ -19,6 +19,19 @@ public class Project {
     @OneToMany(mappedBy = "project")
     private Set<Developer> developers = new HashSet<>(0);
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id", referencedColumnName = "project_id")
+    private ProjectDetails projectDetails;
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", projectDetails=" + projectDetails +
+                '}';
+    }
+
     public Project() {
     }
 
@@ -44,6 +57,14 @@ public class Project {
         this.name = name;
     }
 
+    public ProjectDetails getProjectDetails() {
+        return projectDetails;
+    }
+
+    public void setProjectDetails(ProjectDetails projectDetails) {
+        this.projectDetails = projectDetails;
+    }
+
     public Set<Developer> getDevelopers() {
         return developers;
     }
@@ -52,11 +73,4 @@ public class Project {
         this.developers = developers;
     }
 
-    @Override
-    public String toString() {
-        return "Project{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 }

@@ -34,6 +34,7 @@
 
         <mapping class="com.company.hibernate.model.Developer"/>
         <mapping class="com.company.hibernate.model.Project"/>
+        <mapping class="com.company.hibernate.model.ProjectDetails"/>
         <mapping class="com.company.hibernate.model.Skill"/>
 
     </session-factory>

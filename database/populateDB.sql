@@ -3,6 +3,11 @@ INSERT INTO hibernate.projects (name) VALUES('Hibernate');
 INSERT INTO hibernate.projects (name) VALUES('WildFly');
 INSERT INTO hibernate.projects (name) VALUES('AngularJS');
 
+--Projects details
+INSERT INTO hibernate.projects_details (project_id, description) VALUES(3,'AngularJS - it is cool JS framework.');
+INSERT INTO hibernate.projects_details (project_id, description) VALUES(2,'WildFly - it is RedHat servlet container, old name JBoss.');
+INSERT INTO hibernate.projects_details (project_id, description) VALUES(1,'Hibernate - it is popular ORM framework. Develop by RedHat in OpenSource.');
+
 -- developers
 INSERT INTO hibernate.developers (first_name, last_name , specialty, salary, project_id) VALUES ( 'Ivan', 'Ivanon', 'Java Developer', 3000.00, 1);
 INSERT INTO hibernate.developers (first_name, last_name , specialty, salary, project_id) VALUES ( 'Kolya', 'Nikolaev', 'Java  Developer', 4000.00, 1);

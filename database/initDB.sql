@@ -5,6 +5,12 @@ CREATE TABLE IF NOT EXISTS hibernate.projects (
   name         VARCHAR(100) NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS hibernate.projects_details (
+  project_id  BIGINT PRIMARY KEY,
+  description  VARCHAR(100) NOT NULL,
+  FOREIGN KEY (project_id) REFERENCES projects (id) ON DELETE cascade ON UPDATE cascade
+);
+
 CREATE TABLE IF NOT EXISTS hibernate.developers (
   id         BIGINT PRIMARY KEY AUTO_INCREMENT,
   first_name VARCHAR(50)  NOT NULL,

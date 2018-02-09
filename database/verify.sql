@@ -12,3 +12,4 @@ INNER JOIN hibernate.skills
 ON hibernate.skills.id=hibernate.developer_skills.skill_id
 
 DROP SCHEMA hibernate;
+DROP TABLE hibernate.projects_details;
