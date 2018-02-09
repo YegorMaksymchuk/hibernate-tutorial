@@ -1,19 +1,10 @@
 package com.company.hibernate.model;
 
-import java.util.HashSet;
-import java.util.Set;
 
 public class Project {
     private Long id;
     private String name;
-
-    @Override
-    public String toString() {
-        return "Project{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
+    private ProjectDetails projectDetails;
 
     public Project() {
     }
@@ -32,5 +23,22 @@ public class Project {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public ProjectDetails getProjectDetails() {
+        return projectDetails;
+    }
+
+    public void setProjectDetails(ProjectDetails projectDetails) {
+        this.projectDetails = projectDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "Project{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", projectDetails=" + projectDetails +
+                '}';
     }
 }

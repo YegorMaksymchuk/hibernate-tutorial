@@ -9,5 +9,7 @@
         </id>
 
         <property name="name" type="java.lang.String" column="name"/>
+
+        <one-to-one name="projectDetails" class="com.company.hibernate.model.ProjectDetails" cascade="save-update"/>
     </class>
 </hibernate-mapping>

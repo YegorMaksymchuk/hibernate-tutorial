@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.company.hibernate.model.ProjectDetails" table="projects_details">
+        <id name="id" type="java.lang.Long" column="project_id">
+            <generator class="native"/>
+        </id>
+
+        <property name="description" type="java.lang.String" column="description"/>
+
+        <one-to-one name="project" class="com.company.hibernate.model.Project" constrained="true" cascade="all"/>
+    </class>
+</hibernate-mapping>
