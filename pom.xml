@@ -12,6 +12,7 @@
     <modules>
         <module>mapping-xml</module>
         <module>mapping-annotation</module>
+        <module>cache-example</module>
     </modules>
 
 

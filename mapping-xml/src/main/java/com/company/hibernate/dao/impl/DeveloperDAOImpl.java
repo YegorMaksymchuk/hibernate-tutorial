@@ -4,10 +4,10 @@ import com.company.hibernate.dao.DeveloperDAO;
 import com.company.hibernate.model.Developer;
 import com.company.hibernate.utils.HibernateUtil;
 import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
-import org.hibernate.mapping.FetchProfile;
 import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
@@ -67,7 +67,8 @@ public class DeveloperDAOImpl implements DeveloperDAO {
     public List<Developer> getDeveloperWithSalaryAbove(BigDecimal salary) {
         Session session = HibernateUtil.getSessionFactory().openSession();
 
-        Criteria criteria = session.createCriteria(Developer.class);
+        Criteria criteria = session.createCriteria(Developer.class).setFetchMode("", FetchMode.DEFAULT);
+
         criteria.add(Restrictions.gt("salary", salary));
 
         List<Developer> result = criteria.list();

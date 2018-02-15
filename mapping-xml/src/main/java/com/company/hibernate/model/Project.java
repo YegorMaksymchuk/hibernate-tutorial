@@ -1,10 +1,14 @@
 package com.company.hibernate.model;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Project {
     private Long id;
     private String name;
     private ProjectDetails projectDetails;
+    private Set<Developer> developer = new HashSet<>();
 
     public Project() {
     }
@@ -31,6 +35,14 @@ public class Project {
 
     public void setProjectDetails(ProjectDetails projectDetails) {
         this.projectDetails = projectDetails;
+    }
+
+    public Set<Developer> getDeveloper() {
+        return developer;
+    }
+
+    public void setDeveloper(Set<Developer> developer) {
+        this.developer = developer;
     }
 
     @Override

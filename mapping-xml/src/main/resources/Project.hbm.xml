@@ -10,6 +10,14 @@
 
         <property name="name" type="java.lang.String" column="name"/>
 
+        <set name="developers" table="developers" cascade="all" inverse="true" fetch="select" lazy="false">
+            <cache usage="read-write"/>
+            <one-to-many class="com.company.hibernate.model.Developer"/>
+            <key>
+                <column name="project_id"/>
+            </key>
+        </set>
+
         <one-to-one name="projectDetails" class="com.company.hibernate.model.ProjectDetails" cascade="save-update"/>
     </class>
 </hibernate-mapping>
