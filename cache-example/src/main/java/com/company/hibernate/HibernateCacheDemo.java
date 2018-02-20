@@ -16,11 +16,8 @@ public class HibernateCacheDemo {
     public static final int BATCH_SIZE = 50;
 
     private static long time;
-    private SessionFactory sessionFactory;
-
-    public HibernateCacheDemo() {
-        sessionFactory = new Configuration().configure().buildSessionFactory();
-    }
+    private SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+    ;
 
     private static void startTimer() {
         time = System.currentTimeMillis();
