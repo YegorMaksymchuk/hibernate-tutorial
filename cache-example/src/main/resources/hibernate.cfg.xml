@@ -37,10 +37,15 @@
         <!--Hibernate DDL Settings-->
         <!--<property name="hibernate.hbm2dll.auto">update</property>-->
 
+        <!--Entities classes-->
         <mapping class="com.company.hibernate.model.Developer"/>
         <mapping class="com.company.hibernate.model.Project"/>
         <mapping class="com.company.hibernate.model.ProjectDetails"/>
         <mapping class="com.company.hibernate.model.Skill"/>
+
+        <!--Entities xml-->
+        <!--<mapping resource="Developer.hbm.xml"/>-->
+        <!--<mapping resource="Project.hbm.xml"/>-->
 
     </session-factory>
 </hibernate-configuration>

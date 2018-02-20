@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.company.hibernate.model.Developer" table="developers">
+        <cache usage="read-only"/>
+
+        <id name="id" type="java.lang.Long" column="id">
+            <generator class="native"/>
+        </id>
+
+        <property name="firstName" column="first_name" type="java.lang.String"/>
+        <property name="lastName" column="last_name" type="java.lang.String"/>
+        <property name="specialty" column="specialty" type="java.lang.String"/>
+        <property name="salary" column="salary" type="java.math.BigDecimal"/>
+
+        <many-to-one name="project" class="com.company.hibernate.model.Project" fetch="select" lazy="false"
+                     column="project_id" not-null="true"
+                     cascade="all"/>
+
+        <set name="skills" table="developer_skills" cascade="all" inverse="true" fetch="select" lazy="false">
+            <key>
+                <column name="developer_id"/>
+            </key>
+            <many-to-many entity-name="com.company.hibernate.model.Skill">
+                <column name="skill_id"/>
+            </many-to-many>
+        </set>
+    </class>
+
+</hibernate-mapping>
+
