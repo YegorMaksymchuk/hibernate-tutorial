@@ -35,7 +35,7 @@
         <!--<property name="hibernate.enable_lazy_load_no_trans">true</property>-->
 
         <!--Hibernate DDL Settings-->
-        <property name="hibernate.hbm2dll.auto">update</property>
+        <!--<property name="hibernate.hbm2dll.auto">update</property>-->
 
         <mapping class="com.company.hibernate.model.Developer"/>
         <mapping class="com.company.hibernate.model.Project"/>
