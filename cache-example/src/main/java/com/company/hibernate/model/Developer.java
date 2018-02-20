@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
@@ -11,7 +12,7 @@ import java.util.Set;
 @Entity
 @Table(name = "developers")
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
-public class Developer {
+public class Developer implements Serializable {
 
     @Id
     @Column(name = "id")

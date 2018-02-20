@@ -1,10 +1,14 @@
 package com.company.hibernate.model;
 
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "projects_details")
-public class ProjectDetails {
+@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+public class ProjectDetails implements Serializable {
     @Id
     @Column(name = "project_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
