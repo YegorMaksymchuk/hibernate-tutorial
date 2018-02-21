@@ -15,9 +15,11 @@ import java.util.Set;
 public class HibernateCacheDemo {
     public static final int BATCH_SIZE = 50;
 
+    private static HibernateCacheDemo app = new HibernateCacheDemo();
+
     private static long time;
+
     private SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-    ;
 
     private static void startTimer() {
         time = System.currentTimeMillis();
@@ -29,7 +31,7 @@ public class HibernateCacheDemo {
     }
 
     public static void demonstrateLevelOneCacheWork() {
-        HibernateCacheDemo app = new HibernateCacheDemo();
+
 
         app.clearAll();
         app.addProjects(1);
@@ -47,7 +49,6 @@ public class HibernateCacheDemo {
     }
 
     public static void demonstrateLevelTwoCacheWork() {
-        HibernateCacheDemo app = new HibernateCacheDemo();
 
         app.clearAll();
         app.addProjects(1);
@@ -59,7 +60,6 @@ public class HibernateCacheDemo {
     }
 
     public static void demonstrateLevelTwoDependenciesCacheWork() {
-        HibernateCacheDemo app = new HibernateCacheDemo();
 
         app.clearAll();
 
@@ -78,7 +78,7 @@ public class HibernateCacheDemo {
     }
 
     public static void demonstrateBatching() {
-        HibernateCacheDemo app = new HibernateCacheDemo();
+
         app.clearAll();
 
         Session session = app.sessionFactory.openSession();
@@ -179,11 +179,17 @@ public class HibernateCacheDemo {
 
     public void readFirstProjectInTheSameSession() {
         int id = getFirstProjectdId();
-
         Session session = sessionFactory.openSession();
         session.get(Project.class, id);
         session.get(Project.class, id);
         session.close();
+    }
+
+    public static void main(String[] args) {
+        app.demonstrateLevelOneCacheWork();
+//        hcd.demonstrateLevelTwoCacheWork();
+//        hcd.demonstrateLevelTwoDependenciesCacheWork();
+//        hcd.demonstrateBatching();
     }
 }
 /*

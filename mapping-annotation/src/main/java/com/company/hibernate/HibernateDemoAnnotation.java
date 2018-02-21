@@ -1,20 +1,22 @@
 package com.company.hibernate;
 
-import com.company.hibernate.dao.DeveloperDAO;
 import com.company.hibernate.dao.hibernate.DeveloperDAOImpl;
+import com.company.hibernate.model.Project;
+
+import java.math.BigDecimal;
 
 public class HibernateDemoAnnotation {
     public static void main(String[] args) {
-        DeveloperDAO developerDAO = new DeveloperDAOImpl();
-
-        System.out.println(developerDAO.getById(1L));
+        BigDecimal salary = new BigDecimal(3000.00);
+        Project project = new Project();
+        project.setName("Hibernate");
+        DeveloperDAOImpl developerDAO = new DeveloperDAOImpl();
+        System.out.println("=======================By Salary==========================================");
+        developerDAO.getAllBySalary(salary).forEach(System.out::println);
+        System.out.println("=================================================================");
+        System.out.println(developerDAO.getOneDeveloperByName("Ivan").toString());
+        System.out.println("=================================================================");
+        developerDAO.printAllDevelopersByProject(project);
+        System.out.println("=================================================================");
     }
 }
-/*
- *
- * 1. fetch-“join” = Disable the lazy loading, always load all the collections and entities.
- * 2. fetch-“select” (default) = Lazy load all the collections and entities.
- * 3. batch-size=”N” = Fetching up to ‘N’ collections or entities, *Not record*.
- * 4. fetch-“subselect” = Group its collection into a sub select statement.
- *
- * */

@@ -11,4 +11,6 @@ public interface DeveloperDAO extends GenericDAO<Developer, Long> {
     List<Developer> getDeveloperWithSalaryAbove(BigDecimal salary);
 
     List<Developer> getAllDeveloperSQL();
+
+    List<Developer> getAllBySalary(BigDecimal salary);
 }

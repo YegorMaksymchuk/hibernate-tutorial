@@ -2,11 +2,15 @@ package com.company.hibernate.dao.hibernate;
 
 import com.company.hibernate.dao.DeveloperDAO;
 import com.company.hibernate.model.Developer;
+import com.company.hibernate.model.Project;
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
 import java.util.List;
 
@@ -21,7 +25,6 @@ public class DeveloperDAOImpl implements DeveloperDAO {
         transaction.commit();
         session.close();
     }
-
 
     public Developer getById(Long id) {
         Session session = this.sessionFactory.openSession();
@@ -40,6 +43,71 @@ public class DeveloperDAOImpl implements DeveloperDAO {
         session.delete(developer);
         transaction.commit();
         session.close();
+    }
+
+    private List<Developer> getAllDevelopersByProject(Project project) {
+        Session session = this.sessionFactory.openSession();
+
+        Query query = session.createQuery("FROM Developer d " +
+                "RIGHT JOIN Project p " +
+                "ON d.project=p.id " +
+                "WHERE p.name= :name").setParameter("name", project.getName());
+
+        List<Object[]> devsAndProjects = query.list();
+        Developer developer = null;
+        List<Developer> result = null;
+        for (Object[] variable : devsAndProjects) {
+            developer = (Developer) devsAndProjects.get(0)[0];
+            result.add(developer);
+        }
+
+        return result;
+    }
+
+    public void printAllDevelopersByProject(Project project) {
+        Session session = this.sessionFactory.openSession();
+
+        Query query = session.createQuery("FROM Developer d " +
+                "RIGHT JOIN Project p " +
+                "ON d.project=p.id " +
+                "WHERE p.name= :name").setParameter("name", project.getName());
+
+        List<Object[]> result = query.list();
+
+        for (Object[] t : result) {
+            Developer developer = (Developer) result.get(0)[0];
+            System.out.println(developer);
+            System.out.println("-------------------------------------------------------------");
+            Project projects = (Project) result.get(1)[1];
+            System.out.println(projects);
+            System.out.println("-------------------------------------------------------------");
+        }
+    }
+
+    public List<Developer> getAllBySalary(BigDecimal salary) {
+        Session session = this.sessionFactory.openSession();
+        Query query = session.createQuery("FROM Developer WHERE salary= :salary").setParameter("salary", salary);
+        List<Developer> result = query.getResultList();
+        return result;
+    }
+
+    public Developer getOneDeveloperByName(String name) {
+        Session session = this.sessionFactory.openSession();
+        CriteriaBuilder cb = session.getEntityManagerFactory().getCriteriaBuilder();
+        CriteriaQuery criteriaQuery = cb.createQuery(Developer.class);
+        Root<Developer> i = criteriaQuery.from(Developer.class);
+
+        Query query = session.createQuery(
+                criteriaQuery.select(i).where(
+                        cb.equal(
+                                i.get("firstName"),
+                                cb.parameter(String.class, "firstName")
+                        )
+                )
+        ).setParameter("firstName", "Ivan");
+
+        Developer developer = (Developer) query.getSingleResult();
+        return developer;
     }
 
     public List<Developer> getAll() {
